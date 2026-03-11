@@ -1,0 +1,14 @@
+name: obs-platform
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - fastapi==0.135.1
+      - uvicorn[standard]==0.41.0
+      - opentelemetry-api==1.40.0
+      - opentelemetry-sdk==1.40.0
+      - opentelemetry-exporter-otlp-proto-http==1.40.0
+      - opentelemetry-instrumentation-fastapi==0.61b0
+      - opentelemetry-instrumentation-logging==0.61b0
