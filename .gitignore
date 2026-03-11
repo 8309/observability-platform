@@ -20,5 +20,6 @@ venv/
 
 # Local project artifacts
 _codex/
+.playwright-cli/
 runtime-verification*.md
 runtime-verification*.json

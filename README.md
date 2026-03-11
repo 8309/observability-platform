@@ -1,8 +1,19 @@
 # Observability Platform Demo
 
-A small but complete observability platform built around a Python FastAPI service and an OpenTelemetry pipeline.
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.135-009688?logo=fastapi&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Local%20Stack-2496ED?logo=docker&logoColor=white)
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-Traces%20%7C%20Metrics%20%7C%20Logs-6E44FF)
+![Grafana](https://img.shields.io/badge/Grafana-Tempo%20%7C%20Loki%20%7C%20Prometheus-F46800?logo=grafana&logoColor=white)
 
-This project is designed to be easy to run locally and easy to discuss in interviews. It demonstrates:
+An end-to-end observability demo built around a Python FastAPI service and an OpenTelemetry pipeline.
+
+This repository is designed to be easy to run locally, easy to explain in interviews, and concrete enough to show backend + SRE thinking in one project.
+
+中文简介：
+这是一个可本地运行的小型可观测性平台，展示了我如何把一个 Python FastAPI 服务接入 OpenTelemetry，并把 traces、metrics、logs 统一送到 OTEL Collector，再接入 Grafana、Prometheus、Tempo 和 Loki 做观测与排障。
+
+This project demonstrates:
 
 - a containerized backend service with FastAPI
 - distributed tracing with OpenTelemetry and Tempo
@@ -19,6 +30,23 @@ FastAPI app
   -> OTLP metrics -> OTEL Collector -> Prometheus -> Grafana
   -> OTLP logs    -> OTEL Collector -> Loki       -> Grafana
 ```
+
+## Screenshots
+
+### Service overview dashboard
+
+![Grafana service overview dashboard](output/playwright/grafana-dashboard.png)
+
+### Tempo trace exploration
+
+![Grafana tempo trace detail view](output/playwright/grafana-trace-detail.png)
+
+## Resume-Friendly Summary
+
+- Built a containerized observability demo platform around a FastAPI service and OpenTelemetry instrumentation.
+- Implemented request tracing, structured JSON logging, and custom metrics with a unified OTLP pipeline through the OpenTelemetry Collector.
+- Provisioned Grafana, Prometheus, Tempo, and Loki automatically with Docker Compose so the full stack can be started locally with one command.
+- Added trace-to-log correlation through `trace_id`, making it possible to pivot from a failing request trace to the exact related logs.
 
 ## Tech Stack
 
