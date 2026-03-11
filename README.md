@@ -5,6 +5,7 @@
 ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Local%20Stack-2496ED?logo=docker&logoColor=white)
 ![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-Traces%20%7C%20Metrics%20%7C%20Logs-6E44FF)
 ![Grafana](https://img.shields.io/badge/Grafana-Tempo%20%7C%20Loki%20%7C%20Prometheus-F46800?logo=grafana&logoColor=white)
+[![CI](https://github.com/8309/observability-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/8309/observability-platform/actions/workflows/ci.yml)
 
 An end-to-end observability demo built around a Python FastAPI service and an OpenTelemetry pipeline.
 
@@ -222,6 +223,13 @@ Metrics are already aggregated and relatively cheap compared to full-fidelity tr
 - containerized local platform setup with Docker Compose
 - operational thinking around latency, error rate, structured logs, and trace correlation
 - Grafana provisioning instead of manual dashboard setup
+
+## What I Learned
+
+- How to use the OpenTelemetry Collector as a central ingestion layer instead of wiring each backend directly into the application.
+- Why P95 latency is usually a more operationally useful signal than average latency.
+- How structured logs become much more valuable when they share the same `trace_id` as traces.
+- How to package a multi-service local platform so other engineers can run it with one command instead of manual setup.
 
 ## Common Troubleshooting
 
